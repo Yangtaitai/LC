@@ -15,6 +15,9 @@
 *Your code should preferably run in O(n) time and use only O(1) memory.
 */
 
+/* the basic idea is if they have an intersection, the intersection part should be on the tail of the list and have same length. 
+*  So I first compute two lists length and then compare the same len. 
+
 public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         if(headA == headB) return headA;
         if((headA == null && headB != null)||(headA != null && headB == null)) return null;
