@@ -7,7 +7,7 @@
 
 /* the basic idea to to divide the list into first half and second half,
 *  reverse the second half list,
-*  concat the first half and second half in crossin way.
+*  concat the first half and second half in crossing way.
 */
 
 public void reorderList(ListNode head) {
