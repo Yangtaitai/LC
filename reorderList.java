@@ -5,6 +5,8 @@
 * Given {1,2,3,4}, reorder it to {1,4,2,3}.
 */
 
+// this problem is a little like OddEven List, except the reverse second half list
+
 /* the basic idea to to divide the list into first half and second half,
 *  reverse the second half list,
 *  concat the first half and second half in crossing way.
