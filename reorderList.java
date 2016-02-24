@@ -4,25 +4,31 @@
 * For example,
 * Given {1,2,3,4}, reorder it to {1,4,2,3}.
 */
+
+/* the basic idea to to divide the list into first half and second half,
+*  reverse the second half list,
+*  concat the first half and second half in crossin way.
+*/
+
 public void reorderList(ListNode head) {
-    if(head == null || head.next == null || head.next.next == null) return;
-    ListNode pre = head;
+    if(head == null || head.next == null || head.next.next == null) return; //if the list contains 0,1,2 elements, do nothing.
     
-    ListNode secondHead = getMid(head);
-    secondHead = reverseList(secondHead);
+    ListNode pre = head;
+    ListNode secondHead = getMid(head); // list: 3 -> 4
+    secondHead = reverseList(secondHead); // reverse the second half list: 4 -> 3
         
     while(pre != null && secondHead != null){
-      ListNode cur = pre.next;
-      ListNode temp = secondHead.next;
+      ListNode cur = pre.next; 
+      ListNode temp = secondHead.next; // cur, temp is to track the list next element, since pre, secondHead will be used concat.
             
-      pre.next = secondHead;
-      secondHead.next = cur;
+      pre.next = secondHead; // 1 -> 4
+      secondHead.next = cur; // 1 -> 4 -> 2
             
-      pre = cur;
-      secondHead = temp;
+      pre = cur; // pre point to 2
+      secondHead = temp; // secondHead point to 3,  so the next iteration will be 1 -> 4 -> 2 -> 3 (pre.next = secondHead;)
     }
 }
-    
+// used to reverse the second half of the list    
 public ListNode reverseList(ListNode head){
     if(head == null || head.next == null) return head;
         
@@ -43,6 +49,7 @@ public ListNode reverseList(ListNode head){
     return cur;
 }
 
+// get the mid node of the list, so we can get the second half of the list
 public ListNode getMid(ListNode head){
     if(head == null || head.next == null) return head;
       ListNode slow = head;
