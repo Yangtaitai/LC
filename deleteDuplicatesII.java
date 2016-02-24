@@ -8,7 +8,24 @@
 
 public ListNode deleteDuplicates(ListNode head) {
   if(head == null || head.next == null) return head;
-  ListNode pre = head;
-  ListNode cur = head.next;
+  ListNode dummy = new ListNode(0);
+  dummy.next = head;
+  head = dummy;
   
+  ListNode pre = head;
+  
+  while(pre.next != null){
+      ListNode cur = pre.next;
+      
+      while(cur.next != null && cur.val == cur.next.val){
+          cur = cur.next;
+      }
+      
+      if(pre.next != cur){
+          pre.next = cur.next;
+      }else{
+          pre = pre.next;
+      }
+  }
+  return head.next;
 }
