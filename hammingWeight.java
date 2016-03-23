@@ -14,12 +14,18 @@ public int hammingWeight(int n){
     }
 }
 
-// approach #2, it is much more efficent way, instead of 32 times, it does number of 1 times.
+/** approach #2, it is much more efficent way, instead of 32 times, it does number of 1 times.
+*   suppose n = 9 (1001), n-1 = 8 (1000)
+*   first iteration : n & (n-1) = 8 (1000).
+*   n = 1000, n-1 = 0111;
+*   second iteration: n & (n-1) = 0.
+*   so there are two 1s in the 9.
+*/
 
 public int hammingWeight(int n){
     int count;
-    for(count = 0;n!=0;count++){
-      n &= n-1;
+    for(count = 0;n!=0;count++){        
+      n &= n-1;       
     }
     return count;
 }
