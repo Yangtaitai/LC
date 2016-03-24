@@ -23,7 +23,7 @@ public int majorityElement(int[] nums){
     return 0;  
 }
 
-// approach #2 
+// approach #2  using idea of Linear majority voting algorithm
 public int majorityElement(int[] nums){
     int count = 0;
     int result = 0;
