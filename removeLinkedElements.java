@@ -6,20 +6,16 @@
 */
 
 public ListNode removeElements(ListNode head, int val) {
-  if(head == null) return head;
-  while(head != null && head.val == val) head = head.next; // if head has value val
+  ListNode helper = new ListNode(0);
+  helper.next  = head;
+  head = helper;
   
-  ListNode pre = head;
-  ListNode cur = pre.next;
-  
-  while(cur != null){
-    if(cur.val == val){
-      pre.next = cur.next;
-      cur = cur.next
-    }else{
-      pre = pre.next;
-      cur = cur.next;
+  while (head.next != null) {
+    if (head.next.val == val) {
+      head.next = head.next.next;
+    } else {
+      head = head.next;
     }
   }
-  return head;
+  return helper.head;
 }
