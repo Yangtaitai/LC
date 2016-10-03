@@ -12,12 +12,10 @@ var plusOne = function(digits) {
     while(len >= 0){
         if(digits[len] >= 9){ 
             digits[len] = 0;    
-            if(len - 1 < 0 && digits[len - 1] < 9){   // [8,9] there is a number less than 9,like 8 exist before 9
-                digits[len - 1] += 1;                 // [9,9] add 1 to 8.
-            }else if(!digits[len - 1]){         // [9] --> [0], there is no number before 9, so add 1 -> [1,0]
+            if(!digits[len - 1]){         // [9] --> [0], there is no number before 9, so add 1 -> [1,0]
                 digits.unshift(1);
             }
-        }else{
+        }else{                        
             digits[len] += 1;         //[1,2,3] --> [1,2,4]
             break;
         }
