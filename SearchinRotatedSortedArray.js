@@ -14,3 +14,31 @@ var search = function(nums, target) {
     }
     return -1;
 }
+
+// binary search
+var search = function(nums, target) {
+     if(nums.length === 0 || nums === null) return -1;
+    var start = 0;
+    var end = nums.length - 1;
+    var mid;
+    while(start + 1 < end){
+        mid = Math.floor(start + (end - start) / 2);
+        if(nums[mid] === target) return mid;
+        if(nums[start] < nums[mid]){        // if first half is ASC
+            if(nums[start] <= target && target <= nums[mid]){  // target in the first half.
+                end = mid;
+            }else{
+                start = mid;
+            }
+        }else{                              
+            if(target >= nums[mid] && target <= nums[end]){  // target in the second half.
+                start = mid;
+            }else{
+                end = mid;
+            }
+        }
+    }
+    if(nums[start] === target) return start;
+    if(nums[end] === target) return end;
+    return -1;
+}
