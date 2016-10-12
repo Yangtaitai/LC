@@ -10,6 +10,8 @@
  * @param {number} n
  * @return {boolean}
  */
+
+// recursive way
 var isHappy = function(n) {
     if(n < 10){
         if(n === 1 || n === 7) return true;
@@ -22,3 +24,26 @@ var isHappy = function(n) {
     }
     return isHappy(sum);
 }
+
+// without recursive way
+var isHappy = function(n) {
+    if(n < 10){
+        if(n === 1 || n === 7) return true;
+        else return false;
+    }
+    
+    var temp,sum;
+    while(n > 10){
+        sum = 0;
+        temp = n.toString();
+        for(var i = 0; i < temp.length; i++){
+            sum += parseInt(temp[i]) * parseInt(temp[i]);
+        }
+        n = sum;
+    }
+    if(n === 1 || n === 7 || n === 10) 
+        return true;
+    else
+        return false;
+}
+
